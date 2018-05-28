@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':domain')
+    compile group: 'javax.transaction', name: 'javax.transaction-api', version: '1.3'
+}

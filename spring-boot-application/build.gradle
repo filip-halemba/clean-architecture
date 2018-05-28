@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    ext {
+        POSTGRES_DRIVER_VERSION = '42.1.4'
+    }
+    dependencies {
+        classpath("org.postgresql:postgresql:${POSTGRES_DRIVER_VERSION}")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE")
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    compile project(':adapters')
+
+    runtime("org.postgresql:postgresql:${POSTGRES_DRIVER_VERSION}")
+
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+bootJar {
+    baseName = 'gs-spring-boot'
+    version =  '0.1.0'
+}
