@@ -2,5 +2,5 @@ rootProject.name = 'clean-architecture'
 include 'domain',
         'use-case',
         'adapters',
-        'spring-boot-application'
+        'application'
 
