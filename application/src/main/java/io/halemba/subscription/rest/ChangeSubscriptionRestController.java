@@ -11,11 +11,9 @@ import io.halemba.subscription.rest.request.RequestChangeSubscriptionRequestBody
 import io.halemba.subscription.rest.response.ChangeSubscriptionStateResponseBody;
 import io.vavr.collection.Seq;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor

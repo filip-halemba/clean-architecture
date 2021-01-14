@@ -1,17 +1,13 @@
 package io.halemba.subscription;
 
 import io.vavr.collection.Set;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.NonNull;
-import lombok.Value;
-import lombok.experimental.Wither;
+import lombok.*;
 
 import java.time.Instant;
 
 @Value
 @Builder
-@Wither(value = AccessLevel.PRIVATE)
+@With(value = AccessLevel.PRIVATE)
 class ChangeSubscriptionProcess {
     @NonNull
     Status status;

@@ -5,8 +5,6 @@ import io.vavr.collection.Seq;
 import lombok.Builder;
 import lombok.Value;
 
-import java.util.Collection;
-
 public interface DocumentStore {
 
     @Value

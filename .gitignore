@@ -8,5 +8,7 @@
 hs_err_pid*
 
 **/out/
+**/build/
 .gradle/
 .idea/
+.idea/compiler.xml

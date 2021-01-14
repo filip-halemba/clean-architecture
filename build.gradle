@@ -17,10 +17,17 @@ subprojects {
         mavenCentral()
     }
 
+    test {
+        useJUnitPlatform()
+    }
+
     dependencies {
-        compile group: 'io.vavr', name: 'vavr', version: '0.10.0'
-        compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
-        testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+        compile("io.vavr:vavr:0.10.3")
+        compileOnly("org.projectlombok:lombok:1.18.16")
+        annotationProcessor("org.projectlombok:lombok:1.18.16")
+
+        testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
     }
 
 }

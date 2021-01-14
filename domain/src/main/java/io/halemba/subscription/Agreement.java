@@ -1,14 +1,10 @@
 package io.halemba.subscription;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.NonNull;
-import lombok.Value;
-import lombok.experimental.Wither;
+import lombok.*;
 
 @Value
 @Builder
-@Wither(AccessLevel.PRIVATE)
+@With(AccessLevel.PRIVATE)
 class Agreement {
     @NonNull String code;
     @NonNull Long version;
