@@ -5,6 +5,10 @@ subprojects {
         }
     }
 
+    ext {
+        SPRING_BOOT_VERSION = '2.4.1'
+    }
+
     apply plugin: 'java'
 
     version = "1.0"
@@ -23,11 +27,15 @@ subprojects {
 
     dependencies {
         compile("io.vavr:vavr:0.10.3")
+        compile("io.vavr:vavr-jackson:0.10.3")
         compileOnly("org.projectlombok:lombok:1.18.16")
         annotationProcessor("org.projectlombok:lombok:1.18.16")
 
+        testCompileOnly("org.projectlombok:lombok:1.18.16")
+        testAnnotationProcessor("org.projectlombok:lombok:1.18.16")
         testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
+
     }
 
 }

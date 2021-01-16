@@ -1,13 +1,18 @@
 package io.halemba.external.subscription;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.UUID;
 
-@Slf4j
 @Component
+@RequiredArgsConstructor
 public class SubscriptionSystemRestFacade {
+
+
+    private final RestTemplate restTemplate;
+    private final SubscriptionSystemConfiguration subscriptionSystemConfiguration;
 
     public String checkCustomerStatus(String customerId) {
         if (customerId.contains("1")) {
@@ -27,5 +32,13 @@ public class SubscriptionSystemRestFacade {
         } else {
             return "PREMIUM";
         }
+    }
+
+    public String generateProposal(String subscriptionCode) {
+        return String.format(
+                "%s_%s",
+                subscriptionCode,
+                restTemplate.getForObject(subscriptionSystemConfiguration.getUrl() + "/generate-proposal", String.class)
+        );
     }
 }

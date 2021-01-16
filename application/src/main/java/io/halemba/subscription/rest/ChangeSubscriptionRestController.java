@@ -9,7 +9,7 @@ import io.halemba.subscription.query.ChangeSubscriptionQueryService;
 import io.halemba.subscription.query.ChangeSubscriptionStateQuery;
 import io.halemba.subscription.rest.request.RequestChangeSubscriptionRequestBody;
 import io.halemba.subscription.rest.response.ChangeSubscriptionStateResponseBody;
-import io.vavr.collection.Seq;
+import io.vavr.collection.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +24,7 @@ class ChangeSubscriptionRestController {
     private final RequestChangeSubscriptionUseCase requestChangeSubscriptionUseCase;
 
     @GetMapping("/proposals/{subscriptionCode}")
-    public Seq<String> getProposal(@PathVariable String subscriptionCode) {
+    public List<String> getProposal(@PathVariable String subscriptionCode) {
         return changeSubscriptionQueryService.getProposal(subscriptionCode).getItems();
     }
 

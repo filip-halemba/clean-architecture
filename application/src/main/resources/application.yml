@@ -3,3 +3,7 @@ spring:
     url: jdbc:postgresql://localhost:5435/clean_architecture
     username: database_user
     password: database_user_password
+
+external-systems:
+  subscription-system:
+    url: "http://localhost:9000"
